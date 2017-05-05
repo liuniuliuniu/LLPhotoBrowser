@@ -33,6 +33,19 @@ http://www.jianshu.com/u/f9cc13708dfc
     return url;
 }
 
+// 代理方法返回缩略图
+- (UIImage *)photoBrowser:(LLPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    
+    LLPhotoCell *cell = (LLPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    return cell.bigImgV.image;
+    
+}
+```
+
+
 后续：也可在代码中更改长按图片后弹出的LLActionSheetView 实现自定义
 
 

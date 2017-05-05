@@ -143,7 +143,7 @@
     // 如果下载失败下次继续下载---取消黑名单
     // 下载图片回调进度
     
-    
+        
     [self sd_setImageWithPreviousCachedImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         imageViewWeak.progress = (CGFloat)receivedSize / expectedSize;

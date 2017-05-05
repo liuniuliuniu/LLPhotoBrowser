@@ -85,6 +85,16 @@ static NSString * const reuseIdentifier = @"CellID";
     
     return url;
 }
+// 代理方法返回缩略图
+- (UIImage *)photoBrowser:(LLPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    
+    LLPhotoCell *cell = (LLPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    return cell.bigImgV.image;
+    
+}
 
 
 // 返回每一组item的列间距
