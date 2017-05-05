@@ -11,8 +11,14 @@
 
 #import "LLBrowserImageView.h"
 
+#import "LLActionSheetView.h"
+
 //在config中配置相关样式
 #import "LLPhotoBrowserConfig.h"
+
+@interface LLPhotoBrowser ()<UIScrollViewDelegate,LLActionSheetDelegate>
+
+@end
 
 @implementation LLPhotoBrowser
 {//  用于滚动的ScrollVIew
@@ -21,8 +27,7 @@
     BOOL _hasShowedFistView;
     
     UIPageControl *_pageControll;
-    // 保存按钮
-    UIButton *_saveButton;
+    
     // 指示View
     UIActivityIndicatorView *_indicatorView;
     // 将要消失
@@ -68,18 +73,7 @@
     pageControl.userInteractionEnabled = NO;
     _pageControll = pageControl;
     [self addSubview:pageControl];
-
     
-    // 2.保存按钮
-    UIButton *saveButton = [[UIButton alloc] init];
-    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
-    [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveButton.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.90f];
-    saveButton.layer.cornerRadius = 5;
-    saveButton.clipsToBounds = YES;
-    [saveButton addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
-    _saveButton = saveButton;
-    [self addSubview:saveButton];
 }
 
 // 保存图片
@@ -152,13 +146,20 @@
         
         // 双击放大图片
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewDoubleTaped:)];
+        
+        // 长按保存图片
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewLongPressAction:)];
+        
         doubleTap.numberOfTapsRequired = 2;
         
         //        如果doubleTapGesture识别出双击事件，则singleTapGesture不会有任何动作。   也就是为了避免冲突
         [singleTap requireGestureRecognizerToFail:doubleTap];
         
+        
+        
         [imageView addGestureRecognizer:singleTap];
         [imageView addGestureRecognizer:doubleTap];
+        [imageView addGestureRecognizer:longPress];
         [_scrollView addSubview:imageView];
     }
     
@@ -245,8 +246,6 @@
     
     [self addSubview:tempView];
     
-    _saveButton.hidden = YES;
-    
     // 进行动画缩小View
     [UIView animateWithDuration:LLPhotoBrowserHideImageAnimationDuration animations:^{
         tempView.frame = targetTemp;
@@ -277,6 +276,38 @@
     [view doubleTapToZommWithScale:scale];
 }
 
+- (void)imageViewLongPressAction:(UIPanGestureRecognizer *)recognizer{
+    
+    if (recognizer.state != UIGestureRecognizerStateEnded) {
+        
+        // 此处可以自定义 
+        NSArray *arr = @[@"保存图片"];
+     
+        LLActionSheetView *sheetV = [[LLActionSheetView alloc]initWithTitleArray:arr andShowCancel:YES];
+        sheetV.delegate = self;
+        // block回调
+        sheetV.ClickIndex = ^(NSInteger index) {
+            
+            switch (index) {
+                case 0:
+                {
+                    NSLog(@"取消");
+                }
+                    break;
+                case 1:
+                {
+                    [self saveImage];
+                }
+                    break;
+                default:
+                    break;
+            }
+        };
+        [self addSubview:sheetV];
+    }
+}
+
+
 
 //1.直接调用[self setNeedsLayout];（这个在上面苹果官方文档里有说明）
 //2.addSubview的时候。
@@ -284,6 +315,7 @@
 //4.滑动UIScrollView的时候。
 //5.旋转Screen会触发父UIView上的layoutSubviews事件。
 //注意:当view的size的值为0的时候，addSubview也不会调用layoutSubviews。当要给这个view添加子控件的时候不管他的size有没有值都会调用
+
 
 - (void)layoutSubviews
 {
@@ -320,7 +352,7 @@
     
     _pageControll.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds
                                        .size.height - 50);
-    _saveButton.frame = CGRectMake(30, self.bounds.size.height - 70, 50, 25);
+    
 }
 
 

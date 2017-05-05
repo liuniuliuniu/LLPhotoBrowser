@@ -34,6 +34,7 @@
 		D22D7A741EBB7ABD000C213B /* LLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D22D7A731EBB7ABD000C213B /* LLPhotoBrowser.m */; };
 		D2D435C51EBC0C3F0012A450 /* LLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D435C41EBC0C3F0012A450 /* LLCollectionViewController.m */; };
 		D2D435C81EBC0D0E0012A450 /* LLPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D435C71EBC0D0E0012A450 /* LLPhotoCell.m */; };
+		D2D435F21EBC457A0012A450 /* LLActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D435F11EBC457A0012A450 /* LLActionSheetView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,8 @@
 		D2D435C41EBC0C3F0012A450 /* LLCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCollectionViewController.m; sourceTree = "<group>"; };
 		D2D435C61EBC0D0E0012A450 /* LLPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPhotoCell.h; sourceTree = "<group>"; };
 		D2D435C71EBC0D0E0012A450 /* LLPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPhotoCell.m; sourceTree = "<group>"; };
+		D2D435F01EBC457A0012A450 /* LLActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLActionSheetView.h; sourceTree = "<group>"; };
+		D2D435F11EBC457A0012A450 /* LLActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLActionSheetView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 		D22D7A381EBB79C3000C213B /* LLPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				D2D435F01EBC457A0012A450 /* LLActionSheetView.h */,
+				D2D435F11EBC457A0012A450 /* LLActionSheetView.m */,
 				D22D7A391EBB79C3000C213B /* LLBrowserImageView.h */,
 				D22D7A3A1EBB79C3000C213B /* LLBrowserImageView.m */,
 				D22D7A721EBB7ABD000C213B /* LLPhotoBrowser.h */,
@@ -278,6 +283,7 @@
 			files = (
 				D22D7A291EBB799E000C213B /* ViewController.m in Sources */,
 				D22D7A6F1EBB79D3000C213B /* UIImageView+HighlightedWebCache.m in Sources */,
+				D2D435F21EBC457A0012A450 /* LLActionSheetView.m in Sources */,
 				D22D7A701EBB79D3000C213B /* UIImageView+WebCache.m in Sources */,
 				D22D7A6E1EBB79D3000C213B /* UIImage+WebP.m in Sources */,
 				D22D7A6A1EBB79D3000C213B /* SDWebImagePrefetcher.m in Sources */,

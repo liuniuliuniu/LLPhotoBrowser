@@ -25,7 +25,7 @@
 @end
 
 
-@interface LLPhotoBrowser : UIView<UIScrollViewDelegate>
+@interface LLPhotoBrowser : UIView
 
 // 容器
 @property (nonatomic, weak) UIView *sourceImagesContainerView;
