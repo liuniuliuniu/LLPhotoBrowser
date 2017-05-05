@@ -1,4 +1,8 @@
 # LLPhotoBrowser
+本人简书地址有任何疑问可简书留言 尽可能的帮助每一个开发人员😃😃😃
+
+http://www.jianshu.com/u/f9cc13708dfc
+
 ##仿微信的图片放大浏览
 
 ![LLPhotoBrowserAnim.gif](http://upload-images.jianshu.io/upload_images/1030171-f31f196571ddb5e6.gif?imageMogr2/auto-orient/strip)
