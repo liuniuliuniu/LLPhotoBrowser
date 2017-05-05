@@ -13,10 +13,10 @@ typedef enum {
 } LLWaitingViewMode;
 
 // 图片保存成功提示文字
-#define LLPhotoBrowserSaveImageSuccessText @" ^_^ 保存成功 ";
+#define LLPhotoBrowserSaveImageSuccessText @"保存成功";
 
 // 图片保存失败提示文字
-#define LLPhotoBrowserSaveImageFailText @" >_< 保存失败 ";
+#define LLPhotoBrowserSaveImageFailText @"保存失败";
 
 // browser背景颜色
 #define LLPhotoBrowserBackgrounColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.95]
@@ -38,3 +38,6 @@ typedef enum {
 
 // 图片下载进度指示器内部控件间的间距
 #define LLWaitingViewItemMargin 10
+
+// 判读系统版本
+#define IOS10_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)

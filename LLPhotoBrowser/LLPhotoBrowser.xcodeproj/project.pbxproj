@@ -32,6 +32,8 @@
 		D22D7A701EBB79D3000C213B /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D22D7A5F1EBB79D3000C213B /* UIImageView+WebCache.m */; };
 		D22D7A711EBB79D3000C213B /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D22D7A611EBB79D3000C213B /* UIView+WebCacheOperation.m */; };
 		D22D7A741EBB7ABD000C213B /* LLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = D22D7A731EBB7ABD000C213B /* LLPhotoBrowser.m */; };
+		D2D435C51EBC0C3F0012A450 /* LLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D435C41EBC0C3F0012A450 /* LLCollectionViewController.m */; };
+		D2D435C81EBC0D0E0012A450 /* LLPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2D435C71EBC0D0E0012A450 /* LLPhotoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,10 @@
 		D22D7A611EBB79D3000C213B /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D22D7A721EBB7ABD000C213B /* LLPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPhotoBrowser.h; sourceTree = "<group>"; };
 		D22D7A731EBB7ABD000C213B /* LLPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPhotoBrowser.m; sourceTree = "<group>"; };
+		D2D435C31EBC0C3F0012A450 /* LLCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCollectionViewController.h; sourceTree = "<group>"; };
+		D2D435C41EBC0C3F0012A450 /* LLCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCollectionViewController.m; sourceTree = "<group>"; };
+		D2D435C61EBC0D0E0012A450 /* LLPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPhotoCell.h; sourceTree = "<group>"; };
+		D2D435C71EBC0D0E0012A450 /* LLPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPhotoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,10 @@
 				D22D7A251EBB799E000C213B /* AppDelegate.m */,
 				D22D7A271EBB799E000C213B /* ViewController.h */,
 				D22D7A281EBB799E000C213B /* ViewController.m */,
+				D2D435C31EBC0C3F0012A450 /* LLCollectionViewController.h */,
+				D2D435C41EBC0C3F0012A450 /* LLCollectionViewController.m */,
+				D2D435C61EBC0D0E0012A450 /* LLPhotoCell.h */,
+				D2D435C71EBC0D0E0012A450 /* LLPhotoCell.m */,
 				D22D7A401EBB79D3000C213B /* SDWebImage */,
 				D22D7A2A1EBB799E000C213B /* Main.storyboard */,
 				D22D7A2D1EBB799E000C213B /* Assets.xcassets */,
@@ -276,7 +286,9 @@
 				D22D7A671EBB79D3000C213B /* SDWebImageDownloader.m in Sources */,
 				D22D7A3E1EBB79C3000C213B /* LLBrowserImageView.m in Sources */,
 				D22D7A741EBB7ABD000C213B /* LLPhotoBrowser.m in Sources */,
+				D2D435C81EBC0D0E0012A450 /* LLPhotoCell.m in Sources */,
 				D22D7A691EBB79D3000C213B /* SDWebImageManager.m in Sources */,
+				D2D435C51EBC0C3F0012A450 /* LLCollectionViewController.m in Sources */,
 				D22D7A711EBB79D3000C213B /* UIView+WebCacheOperation.m in Sources */,
 				D22D7A6B1EBB79D3000C213B /* UIButton+WebCache.m in Sources */,
 				D22D7A6D1EBB79D3000C213B /* UIImage+MultiFormat.m in Sources */,
@@ -446,6 +458,7 @@
 				D22D7A371EBB799E000C213B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

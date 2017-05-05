@@ -19,8 +19,8 @@
     UIScrollView *_scrollView;
     // 是否展示第一个VIew
     BOOL _hasShowedFistView;
-    // 展示的Lbl
-    UILabel *_indexLabel;
+    
+    UIPageControl *_pageControll;
     // 保存按钮
     UIButton *_saveButton;
     // 指示View
@@ -59,23 +59,16 @@
 // 工具类
 - (void)setupToolbars
 {
-    // 1. 序标
-    UILabel *indexLabel = [[UILabel alloc] init];
-    indexLabel.bounds = CGRectMake(0, 0, 80, 30);
-    indexLabel.textAlignment = NSTextAlignmentCenter;
-    indexLabel.textColor = [UIColor whiteColor];
-    indexLabel.font = [UIFont boldSystemFontOfSize:20];
-    //    indexLabel.font = [UIFont systemFontOfSize:20];
-    indexLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    indexLabel.layer.cornerRadius = indexLabel.bounds.size.height * 0.5;
-    indexLabel.clipsToBounds = YES;
-    // 设置初始值
-    if (self.imageCount > 1) {
-        indexLabel.text = [NSString stringWithFormat:@"1/%ld", (long)self.imageCount];
-    }
-    _indexLabel = indexLabel;
-    [self addSubview:indexLabel];
     
+    
+    UIPageControl *pageControl = [[UIPageControl alloc] init];
+    pageControl.numberOfPages = self.imageCount;
+    pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
+    pageControl.userInteractionEnabled = NO;
+    _pageControll = pageControl;
+    [self addSubview:pageControl];
+
     
     // 2.保存按钮
     UIButton *saveButton = [[UIButton alloc] init];
@@ -89,12 +82,14 @@
     [self addSubview:saveButton];
 }
 
-// 保存图片失败
+// 保存图片
 - (void)saveImage
 {
+    
     int index = _scrollView.contentOffset.x / _scrollView.bounds.size.width;
     UIImageView *currentImageView = _scrollView.subviews[index];
     
+    // 一定记得在info.plist 中打开相机权限 否则会闪退
     UIImageWriteToSavedPhotosAlbum(currentImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
     
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] init];
@@ -108,6 +103,8 @@
 // 保存图片的方法
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
 {
+
+    
     [_indicatorView removeFromSuperview];
     
     UILabel *label = [[UILabel alloc] init];
@@ -128,6 +125,7 @@
     }
     [label performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:1.0];
 }
+
 
 
 // 设置SCrollView
@@ -253,7 +251,7 @@
     [UIView animateWithDuration:LLPhotoBrowserHideImageAnimationDuration animations:^{
         tempView.frame = targetTemp;
         self.backgroundColor = [UIColor clearColor];
-        _indexLabel.alpha = 0.1;
+        _pageControll.alpha = 0.1;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -286,7 +284,6 @@
 //4.滑动UIScrollView的时候。
 //5.旋转Screen会触发父UIView上的layoutSubviews事件。
 //注意:当view的size的值为0的时候，addSubview也不会调用layoutSubviews。当要给这个view添加子控件的时候不管他的size有没有值都会调用
-
 
 - (void)layoutSubviews
 {
@@ -321,7 +318,8 @@
         [self showFirstImage];
     }
     
-    _indexLabel.center = CGPointMake(self.bounds.size.width * 0.5, 35);
+    _pageControll.center = CGPointMake(self.bounds.size.width * 0.5, self.bounds
+                                       .size.height - 50);
     _saveButton.frame = CGRectMake(30, self.bounds.size.height - 70, 50, 25);
 }
 
@@ -440,20 +438,11 @@
     
     
     if (!_willDisappear) {
-        _indexLabel.text = [NSString stringWithFormat:@"%d/%ld", index + 1, (long)self.imageCount];
+        _pageControll.currentPage = index;
     }
     // 拖动后展示下一张图片
     [self setupImageOfImageViewForIndex:index];
 }
-
-
-
-
-
-
-
-
-
 
 
 @end
