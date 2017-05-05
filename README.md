@@ -1,7 +1,7 @@
 # LLPhotoBrowser
 本人简书地址有任何疑问可简书留言 尽可能的帮助每一个开发人员😃😃😃
 
-http://www.jianshu.com/u/f9cc13708dfc
+http://www.jianshu.com/p/58e8b04fc4b7
 
 ##仿微信的图片放大浏览
 
