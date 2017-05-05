@@ -359,7 +359,6 @@
 // 展示的方法
 - (void)show
 {
-    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     self.frame = window.bounds;
     // 监听自己的Frame

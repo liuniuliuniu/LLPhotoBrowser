@@ -63,29 +63,28 @@ static NSString * const reuseIdentifier = @"CellID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    // 1 初始化
     LLPhotoBrowser *photoBrowser = [[LLPhotoBrowser alloc]init];
-    
+    // 2 设置代理
     photoBrowser.delegate = self;
-    
+    // 3 设置当前图片
     photoBrowser.currentImageIndex = indexPath.item;
-    
+    // 4 设置图片的个数
     photoBrowser.imageCount = self.photoArr.count;
-    
+    // 5 设置图片的容器
     photoBrowser.sourceImagesContainerView = self.collectionView;
-    
+    // 6 展示
     [photoBrowser show];
 
 }
 
-
+// 代理方法 返回图片URL
 - (NSURL *)photoBrowser:(LLPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index{
     
     NSURL *url = [NSURL URLWithString:self.photoArr[index]];
     
     return url;
 }
-
-
 
 
 // 返回每一组item的列间距
@@ -98,20 +97,18 @@ static NSString * const reuseIdentifier = @"CellID";
     return UIEdgeInsetsMake(10,10 ,10 , 10);
 }
 
+
 - (NSArray *)photoArr{
     if (!_photoArr) {
         _photoArr = @[@"http://ww2.sinaimg.cn/mw690/e67669aagw1fa6gynybcsj20iz0sgwhk.jpg",
-                      @"http://ww4.sinaimg.cn/bmiddle/6a15cf5aly1fewww17l6rj20qo0yatfc.jpg",
-                      @"http://wx4.sinaimg.cn/mw690/63e6fd01ly1fe2iqm8d2wj20qo11cn5d.jpg",
                       @"http://ww2.sinaimg.cn/mw690/e67669aagw1fbfr3ryrt2j21kw2dc4eo.jpg",
+                      @"http://wx4.sinaimg.cn/mw690/63e6fd01ly1fe2iqm8d2wj20qo11cn5d.jpg",
+                      @"http://ww4.sinaimg.cn/bmiddle/6a15cf5aly1fewww17l6rj20qo0yatfc.jpg",
                       @"http://wx3.sinaimg.cn/mw690/b024b1c1ly1feg7x4lu0cg20dw07te85.gif",
                       @"http://ww3.sinaimg.cn/bmiddle/c45009afgy1ff9r1z9nsgj20qo3abhcj.jpg"];
     }
     return _photoArr;
 }
-
-
-
 
 
 
