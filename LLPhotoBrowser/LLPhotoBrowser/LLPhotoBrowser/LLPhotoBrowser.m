@@ -106,7 +106,7 @@
     label.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.90f];
     label.layer.cornerRadius = 5;
     label.clipsToBounds = YES;
-    label.bounds = CGRectMake(0, 0, 150, 30);
+    label.bounds = CGRectMake(0, 0, 150, 44);
     label.center = self.center;
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:17];
