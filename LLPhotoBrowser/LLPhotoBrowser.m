@@ -286,25 +286,44 @@
         LLActionSheetView *sheetV = [[LLActionSheetView alloc]initWithTitleArray:arr andShowCancel:YES];
         sheetV.delegate = self;
         // block回调
-        sheetV.ClickIndex = ^(NSInteger index) {
-            
-            switch (index) {
-                case 0:
-                {
-                    NSLog(@"取消");
-                }
-                    break;
-                case 1:
-                {
-                    [self saveImage];
-                }
-                    break;
-                default:
-                    break;
-            }
-        };
+//        sheetV.ClickIndex = ^(NSInteger index) {
+//            
+//            switch (index) {
+//                case 0:
+//                {
+//                    NSLog(@"取消");
+//                }
+//                    break;
+//                case 1:
+//                {
+//                    [self saveImage];
+//                }
+//                    break;
+//                default:
+//                    break;
+//            }
+//        };
         [self addSubview:sheetV];
     }
+}
+
+// 也支持代理
+- (void)actionSheetView:(LLActionSheetView *)actionSheetView clickButtonAtIndex:(NSInteger )buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+        {
+            NSLog(@"取消");
+        }
+            break;
+        case 1:
+        {
+            [self saveImage];
+        }
+            break;
+        default:
+            break;
+    }
+
 }
 
 

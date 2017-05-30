@@ -138,43 +138,43 @@
     [self addSubview:waiting];
     
     
-//    __weak LLBrowserImageView *imageViewWeak = self;
+    __weak LLBrowserImageView *imageViewWeak = self;
     
     // 如果下载失败下次继续下载---取消黑名单
     // 下载图片回调进度
     
-//        
-//    [self sd_setImageWithPreviousCachedImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-//        
-//        imageViewWeak.progress = (CGFloat)receivedSize / expectedSize;
-//                
-//    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        
-//        // 把等待的图片移走
-//        [imageViewWeak removeWaitingView];
-//        // 如果出错的话
-//        if (error) {
-//            
-//            UILabel *label = [[UILabel alloc] init];
-//            label.bounds = CGRectMake(0, 0, 160, 30);
-//            label.center = CGPointMake(imageViewWeak.bounds.size.width * 0.5, imageViewWeak.bounds.size.height * 0.5);
-//            label.text = @"图片加载失败";
-//            label.font = [UIFont systemFontOfSize:16];
-//            label.textColor = [UIColor whiteColor];
-//            label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
-//            label.layer.cornerRadius = 5;
-//            label.clipsToBounds = YES;
-//            label.textAlignment = NSTextAlignmentCenter;
-//            [imageViewWeak addSubview:label];
-//            
-//        } else {
-//            // 获取到图片了
-//            _scrollImageView.image = image;
-//            // 方便开始绘图
-//            [_scrollImageView setNeedsDisplay];
-//        }
-//        
-//    }];
+        
+    [self sd_setImageWithPreviousCachedImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        imageViewWeak.progress = (CGFloat)receivedSize / expectedSize;
+                
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        // 把等待的图片移走
+        [imageViewWeak removeWaitingView];
+        // 如果出错的话
+        if (error) {
+            
+            UILabel *label = [[UILabel alloc] init];
+            label.bounds = CGRectMake(0, 0, 160, 30);
+            label.center = CGPointMake(imageViewWeak.bounds.size.width * 0.5, imageViewWeak.bounds.size.height * 0.5);
+            label.text = @"图片加载失败";
+            label.font = [UIFont systemFontOfSize:16];
+            label.textColor = [UIColor whiteColor];
+            label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+            label.layer.cornerRadius = 5;
+            label.clipsToBounds = YES;
+            label.textAlignment = NSTextAlignmentCenter;
+            [imageViewWeak addSubview:label];
+            
+        } else {
+            // 获取到图片了
+            _scrollImageView.image = image;
+            // 方便开始绘图
+            [_scrollImageView setNeedsDisplay];
+        }
+        
+    }];
 
     
 }
