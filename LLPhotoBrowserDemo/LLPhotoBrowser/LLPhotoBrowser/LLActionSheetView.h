@@ -9,19 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@class LLActionSheetView;
-
-@protocol LLActionSheetDelegate <NSObject>
-
-- (void)actionSheetView:(LLActionSheetView *)actionSheetView clickButtonAtIndex:(NSInteger )buttonIndex;
-
-@end
 
 
 @interface LLActionSheetView : UIView
-
-// 支持代理
-@property (nonatomic,weak) id <LLActionSheetDelegate> delegate;
 
 // 支持block
 @property (nonatomic,copy) void (^ClickIndex) (NSInteger index);

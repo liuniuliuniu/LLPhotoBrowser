@@ -127,11 +127,7 @@
 }
 
 - (void)btnClickAction:(UIButton *)btn{
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(actionSheetView:clickButtonAtIndex:)]) {
-        [self.delegate actionSheetView:self clickButtonAtIndex:btn.tag];
-    }
-    
+        
     if (self.ClickIndex) {
         self.ClickIndex(btn.tag);
     }

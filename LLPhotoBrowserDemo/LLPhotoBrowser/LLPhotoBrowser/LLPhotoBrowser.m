@@ -16,7 +16,7 @@
 //在config中配置相关样式
 #import "LLPhotoBrowserConfig.h"
 
-@interface LLPhotoBrowser ()<UIScrollViewDelegate,LLActionSheetDelegate>
+@interface LLPhotoBrowser ()<UIScrollViewDelegate>
 
 @end
 
@@ -284,48 +284,29 @@
         NSArray *arr = @[@"保存图片"];
      
         LLActionSheetView *sheetV = [[LLActionSheetView alloc]initWithTitleArray:arr andShowCancel:YES];
-        sheetV.delegate = self;
+        
+        
         // block回调
-//        sheetV.ClickIndex = ^(NSInteger index) {
-//            
-//            switch (index) {
-//                case 0:
-//                {
-//                    NSLog(@"取消");
-//                }
-//                    break;
-//                case 1:
-//                {
-//                    [self saveImage];
-//                }
-//                    break;
-//                default:
-//                    break;
-//            }
-//        };
+        sheetV.ClickIndex = ^(NSInteger index) {
+            
+            switch (index) {
+                case 0:
+                {
+                    NSLog(@"取消");
+                }
+                    break;
+                case 1:
+                {
+                    [self saveImage];
+                }
+                    break;
+                default:
+                    break;
+            }
+        };
         [self addSubview:sheetV];
     }
 }
-
-// 也支持代理
-- (void)actionSheetView:(LLActionSheetView *)actionSheetView clickButtonAtIndex:(NSInteger )buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-        {
-            NSLog(@"取消");
-        }
-            break;
-        case 1:
-        {
-            [self saveImage];
-        }
-            break;
-        default:
-            break;
-    }
-
-}
-
 
 
 //1.直接调用[self setNeedsLayout];（这个在上面苹果官方文档里有说明）
