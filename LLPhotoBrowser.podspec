@@ -1,13 +1,11 @@
 
-
 Pod::Spec.new do |s|
 
   s.name         = "LLPhotoBrowser"
   s.version      = "0.0.1"
   s.summary      = "LLPhotoBrowser."
 
-s.description  = @"LLPhotoBrowser.liushaohua"
-
+  s.description  = "LLPhotoBrowser.liushaohua"
 
   s.homepage     = "https://github.com/liuniuliuniu/LLPhotoBrowser"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -35,6 +33,7 @@ s.description  = @"LLPhotoBrowser.liushaohua"
   #
 
   s.author             = { "liuniuliuniu" => "416997919@qq.com" }
+
   # Or just: s.author    = "liuniuliuniu"
   # s.authors            = { "liuniuliuniu" => "416997919@qq.com" }
   # s.social_media_url   = "http://twitter.com/liuniuliuniu"
@@ -45,8 +44,8 @@ s.description  = @"LLPhotoBrowser.liushaohua"
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+   s.platform     = :ios
+   s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -61,7 +60,7 @@ s.description  = @"LLPhotoBrowser.liushaohua"
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/liuniuliuniu/LLPhotoBrowser.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/liuniuliuniu/LLPhotoBrowser.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -73,7 +72,8 @@ s.description  = @"LLPhotoBrowser.liushaohua"
   #
 
   s.source_files  = "LLPhotoBrowser", "LLPhotoBrowser/**/*.{h,m}"
-  s.exclude_files = "LLPhotoBrowser/Exclude"
+
+#s.exclude_files = "LLPhotoBrowser/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -114,6 +114,8 @@ s.description  = @"LLPhotoBrowser.liushaohua"
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+
+   s.dependency "SDWebImage"
+   s.dependency "AFNetworking"
 
 end
