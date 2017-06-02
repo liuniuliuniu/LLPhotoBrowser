@@ -5,7 +5,7 @@ http://www.jianshu.com/p/58e8b04fc4b7
 
 ##仿微信的图片放大浏览
 
-[LLPhotoBrowserAnim.gif](http://upload-images.jianshu.io/upload_images/1030171-ab1eef55e80bd10f.gif?imageMogr2/auto-orient/strip)
+[LLPhotoBrowserAnim.gif](https://github.com/liuniuliuniu/LLPhotoBrowser/blob/master/LLPhotoBrowserAnim.gif)
 
 ####使用方法
 
