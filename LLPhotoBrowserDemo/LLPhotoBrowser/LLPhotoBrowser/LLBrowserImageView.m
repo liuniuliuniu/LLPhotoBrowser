@@ -142,12 +142,9 @@
     
     // 如果下载失败下次继续下载---取消黑名单
     // 下载图片回调进度
-    
-        
-    [self sd_setImageWithPreviousCachedImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         imageViewWeak.progress = (CGFloat)receivedSize / expectedSize;
-                
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
         // 把等待的图片移走
@@ -173,8 +170,16 @@
             // 方便开始绘图
             [_scrollImageView setNeedsDisplay];
         }
+
         
     }];
+    
+    
+    
+    
+    
+    
+    
 
     
 }
