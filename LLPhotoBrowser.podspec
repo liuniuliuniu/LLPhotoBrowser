@@ -21,6 +21,6 @@ s.source_files  = "LLPhotoBrowser", "LLPhotoBrowser/**/*.{h,m}"
 s.requires_arc = true
 
 s.dependency "SDWebImage"
-s.dependency "AFNetworking"
+
 
 end

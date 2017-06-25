@@ -7,7 +7,6 @@
 //
 
 #import "LLPhotoBrowser.h"
-#import "UIImageView+WebCache.h"
 
 #import "LLBrowserImageView.h"
 

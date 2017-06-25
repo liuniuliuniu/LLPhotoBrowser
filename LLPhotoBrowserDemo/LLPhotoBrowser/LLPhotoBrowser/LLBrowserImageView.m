@@ -7,7 +7,8 @@
 //
 
 #import "LLBrowserImageView.h"
-#import "UIImageView+WebCache.h"
+
+#import <UIImageView+WebCache.h>
 #import "LLPhotoBrowserConfig.h"
 #import "LLWaitingView.h"
 
@@ -123,9 +124,7 @@
     _progress = progress;
     // 直接设置到等待图的进度条
     _waitingView.progress = progress;
-    
 }
-
 
 // 设置图片
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder
@@ -142,10 +141,11 @@
     
     // 如果下载失败下次继续下载---取消黑名单
     // 下载图片回调进度
-    [self sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         
         imageViewWeak.progress = (CGFloat)receivedSize / expectedSize;
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
         // 把等待的图片移走
         [imageViewWeak removeWaitingView];
@@ -170,18 +170,13 @@
             // 方便开始绘图
             [_scrollImageView setNeedsDisplay];
         }
-
+        
         
     }];
     
     
     
-    
-    
-    
-    
 
-    
 }
 
 // 捏合图片的方法
