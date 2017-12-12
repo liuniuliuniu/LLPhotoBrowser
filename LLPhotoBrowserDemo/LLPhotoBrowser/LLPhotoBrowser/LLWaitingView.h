@@ -10,9 +10,8 @@
 
 @interface LLWaitingView : UIView
 
-// 进度条
 @property (nonatomic,assign) CGFloat progress;
-// 模型
+
 @property (nonatomic,assign) int mode ;
 
 @end

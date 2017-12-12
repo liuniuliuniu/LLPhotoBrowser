@@ -20,19 +20,13 @@ static NSString * const reuseIdentifier = @"CellID";
 
 @implementation LLCollectionViewController
 
-
-//    初始化布局 重新设置layout
 - (instancetype)init{
     
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-//    CGFloat  screenHeight = [UIScreen mainScreen].bounds.size.height;
-    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.itemSize = CGSizeMake((screenWidth - 50)/3, (screenWidth - 50)/3 * 1.5);
-    
     flowLayout.minimumLineSpacing = 10;
     flowLayout.minimumInteritemSpacing = 7.5;
-
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     return [super initWithCollectionViewLayout:flowLayout];
     
@@ -40,24 +34,17 @@ static NSString * const reuseIdentifier = @"CellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[LLPhotoCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
 }
 
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return self.photoArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LLPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
     [cell.bigImgV sd_setImageWithURL:_photoArr[indexPath.row]];
-    
     return cell;
 }
 
@@ -78,35 +65,25 @@ static NSString * const reuseIdentifier = @"CellID";
 
 }
 
-// 代理方法 返回图片URL
-- (NSURL *)photoBrowser:(LLPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index{
-    
-    NSURL *url = [NSURL URLWithString:self.photoArr[index]];
-    
-    return url;
-}
+// 代理方法 返回高质量图片URL
+//- (NSURL *)photoBrowser:(LLPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index{
+//    NSURL *url = [NSURL URLWithString:self.photoArr[index]];
+//    return url;
+//}
 // 代理方法返回缩略图
 - (UIImage *)photoBrowser:(LLPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index{
-    
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-    
     LLPhotoCell *cell = (LLPhotoCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    
     return cell.bigImgV.image;
     
 }
 
-
-// 返回每一组item的列间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 10;
 }
-// 组的内边距
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(10,10 ,10 , 10);
 }
-
 
 - (NSArray *)photoArr{
     if (!_photoArr) {

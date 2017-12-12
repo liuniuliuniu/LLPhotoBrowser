@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
-
-
 @interface LLActionSheetView : UIView
 
 // 支持block
 @property (nonatomic,copy) void (^ClickIndex) (NSInteger index);
-
 
 /**
  根据数组进行文字显示,返回index
@@ -25,8 +21,5 @@
  */
 - (instancetype)initWithTitleArray:(NSArray *)titleArr
                      andShowCancel:(BOOL )show;
-
-
-
 
 @end

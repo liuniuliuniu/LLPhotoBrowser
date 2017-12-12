@@ -15,27 +15,32 @@
 
 @required
 
-// 返回占位图
+/**
+  返回占位图
+
+ @param browser  browser
+ @param index index
+ @return UIimage
+ */
 - (UIImage *)photoBrowser:(LLPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index;
 
 @optional
-
 - (NSURL *)photoBrowser:(LLPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index;
 
 @end
 
 
 @interface LLPhotoBrowser : UIView
-
-// 容器
+/// 容器视图
 @property (nonatomic, weak) UIView *sourceImagesContainerView;
-// 当前图片的index
+/// 当前图片的index
 @property (nonatomic, assign) NSInteger currentImageIndex;
-// 图片的个数
+/// 图片的个数
 @property (nonatomic, assign) NSInteger imageCount;
 
 @property (nonatomic, weak) id<LLPhotoBrowserDelegate> delegate;
-// 此方法展示
+
+/// 此方法展示
 - (void)show;
 
 
