@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "LLPhotoBrowser"
-s.version      = "0.0.3"
+s.version      = "0.0.4"
 s.summary      = "LLPhotoBrowser."
 s.description  = "LLPhotoBrowser.liushaohua"
 s.homepage     = "https://github.com/liuniuliuniu/LLPhotoBrowser"
