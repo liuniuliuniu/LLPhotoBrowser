@@ -10,5 +10,5 @@ s.source       = { :git => "https://github.com/liuniuliuniu/LLPhotoBrowser.git",
 s.ios.deployment_target = "8.0"
 s.source_files  = "LLPhotoBrowser", "LLPhotoBrowser/**/*.{h,m}"
 s.requires_arc = true
-s.dependency "SDWebImage"
+s.dependency "SDWebImage" , '4.0.0'
 end
